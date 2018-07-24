@@ -1,0 +1,167 @@
+Started GET "/articles" for 127.0.0.1 at 2018-07-25 01:17:35 +0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "pascales" does not exist
+):
+  
+activerecord (5.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:705:in `rescue in connect'
+activerecord (5.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:701:in `connect'
+activerecord (5.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.2) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.2) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.2) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.2) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.2) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (139.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (92.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5659501889949943980);[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20161103112943)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (75.3ms)[0m  [1m[35mCREATE TABLE "articles" ("id" serial NOT NULL PRIMARY KEY, "title" character varying, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161103112943"]]
+  [1m[35m (11.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20161103113002)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (77.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" serial NOT NULL PRIMARY KEY, "commenter" character varying, "body" text, "article_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_3bf61a60d3"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[35m (56.2ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_article_id" ON "comments"  ("article_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161103113002"]]
+  [1m[35m (13.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-07-24 18:21:56.329109"], ["updated_at", "2018-07-24 18:21:56.329109"]]
+  [1m[35m (15.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(5659501889949943980)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/articles" for 127.0.0.1 at 2018-07-25 01:22:11 +0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 3136ms (Views: 3110.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-25 01:22:16 +0700
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x005566bf6d50d0@/home/pascales/.rvm/gems/ruby-2.4.1/gems/actionpack-5.1.2/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-25 01:22:38 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 52ms (Views: 47.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-25 01:23:04 +0700
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x005566bf6d50d0@/home/pascales/.rvm/gems/ruby-2.4.1/gems/actionpack-5.1.2/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-25 01:23:08 +0700
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x005566bf6d50d0@/home/pascales/.rvm/gems/ruby-2.4.1/gems/actionpack-5.1.2/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-25 01:23:09 +0700
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x005566bf6d50d0@/home/pascales/.rvm/gems/ruby-2.4.1/gems/actionpack-5.1.2/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-25 01:24:19 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 90ms (Views: 86.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-25 01:24:59 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 62ms (Views: 59.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-25 01:25:03 +0700
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x005566bf6d50d0@/home/pascales/.rvm/gems/ruby-2.4.1/gems/actionpack-5.1.2/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-25 01:25:08 +0700
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x005566bf6d50d0@/home/pascales/.rvm/gems/ruby-2.4.1/gems/actionpack-5.1.2/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-25 01:25:16 +0700
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x005566bf6d50d0@/home/pascales/.rvm/gems/ruby-2.4.1/gems/actionpack-5.1.2/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-25 01:30:39 +0700
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 428ms (Views: 419.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-25 01:30:42 +0700
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 333ms (Views: 54.8ms | ActiveRecord: 19.5ms)
+
+
