@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  http_basic_authenticate_with name: (ENV["APPLICATION_USER"].blank? ? 'test' : ENV['APPLICATION_USER']), password: (ENV["APPLICATION_PASSWORD"].blank? ? 'test' : ENV["APPLICATION_PASSWORD"]), except: [:index, :show]
+  #http_basic_authenticate_with name: (ENV["APPLICATION_USER"].blank? ? 'test' : ENV['APPLICATION_USER']), password: (ENV["APPLICATION_PASSWORD"].blank? ? 'test' : ENV["APPLICATION_PASSWORD"]), except: [:index, :show]
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
